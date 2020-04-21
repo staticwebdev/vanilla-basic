@@ -11,7 +11,21 @@
 <body>
   <main>
     <h1>Vanilla JavaScript App</h1>
+    <p>Loading content from the API:&nbsp;<b id="name">...</b></p>
   </main>
+
+  <script>
+    (async function() {
+      let server = 'http://localhost:7071';
+      if (['azurestaticapps.net', 'staticsitescanary'].includes(location.hostname)) {
+        apiServer = "";
+      }
+      async function loadName() {
+        return await( await fetch(`${server}/api/HttpExample?name=Azure`)).text();
+      }
+      document.querySelector('#name').innerHTML = await loadName();
+    }())
+  </script>
 </body>
 
 </html>
