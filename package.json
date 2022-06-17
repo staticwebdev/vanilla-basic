@@ -1,0 +1,24 @@
+{
+  "name": "vanilla-basic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": { 
+    "start": "sirv ./src public --cors --single --no-clear --port 8000",
+    "playwright_test" : "playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HannahZhuSWE/vanilla-basic.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HannahZhuSWE/vanilla-basic/issues"
+  },
+  "homepage": "https://github.com/HannahZhuSWE/vanilla-basic#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.22.2"
+  }
+}
