@@ -37,5 +37,7 @@ jobs:
       run: npm ci
     - name: Install Playwright
       run: npx playwright install --with-deps
+    - name: Install Sirv
+      run: npm install --g sirv-cli
     - name: Run playwright tests
       run: npm run playwright_test
