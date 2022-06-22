@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": { 
-    "start": "sirv ./src public --cors --single --no-clear --port 8000",
+    "start": "sirv ./src public",
     "playwright_test" : "playwright test"
   },
   "repository": {
