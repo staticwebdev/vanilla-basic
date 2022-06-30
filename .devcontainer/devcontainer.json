@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.236.0/containers/azure-static-web-apps
 {
-	"name": "Azure Static Web Apps",
+	"name": "Azure Static Web Apps - vanilla sample",
 	"build": {
 		"dockerfile": "Dockerfile",
 		"args": {
