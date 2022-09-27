@@ -2,6 +2,7 @@
   "name": "vanilla-basic",
   "version": "1.0.0",
   "scripts": { 
+    build:azure
     "start": "sirv ./src public --cors --single --no-clear --port 8000",
     "playwright_test" : "playwright test"
   },
