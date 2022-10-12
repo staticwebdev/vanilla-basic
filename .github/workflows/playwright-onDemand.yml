@@ -63,7 +63,7 @@ jobs:
       id: download
     - name: Publish to external repo
       # Only upload if we're running from the staticwebdev repo
-      if: ${{ secrets.PAT_TOKEN != 0 }}
+      if: ${{ env.PAT_TOKEN != 0 }}
       uses: peaceiris/actions-gh-pages@v3.7.3
       with:
         external_repository: mspnp/intern-js-pipeline
