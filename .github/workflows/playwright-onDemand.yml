@@ -82,7 +82,7 @@ jobs:
   notify-dashboard:
     name: Notify Dashboard
     # Only upload if we're running from the staticwebdev repo
-    if: ${{ secrets.PAT_TOKEN != 0 }}
+    if: "${{ env.PAT_EXISTS != '' }}"
     needs: [test, storeReports]
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -96,7 +96,6 @@ jobs:
       - name: Notify docusaurus repo
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-        if: "${{ env.PAT_EXISTS != '' }}"
         run: |
           gh api repos/mspnp/intern-js-pipeline/dispatches \
               --raw-field event_type=rebuild-site
