@@ -16,6 +16,10 @@ on:
     
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+  
+# Make env var reflect presence of token
+env:
+  PAT_EXISTS: ${{ secrets.PAT_TOKEN }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -63,7 +67,7 @@ jobs:
       id: download
     - name: Publish to external repo
       # Only upload if we're running from the staticwebdev repo
-      if: ${{ env.PAT_TOKEN != 0 }}
+      if: "${{ env.PAT_EXISTS != '' }}"
       uses: peaceiris/actions-gh-pages@v3.7.3
       with:
         external_repository: mspnp/intern-js-pipeline
@@ -92,6 +96,7 @@ jobs:
       - name: Notify docusaurus repo
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+        if: "${{ env.PAT_EXISTS != '' }}"
         run: |
           gh api repos/mspnp/intern-js-pipeline/dispatches \
               --raw-field event_type=rebuild-site
