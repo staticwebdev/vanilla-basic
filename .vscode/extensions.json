@@ -1,6 +1,7 @@
 {
   "recommendations": [
-    "ms-azuretools.vscode-azurestaticwebapps", 
+    "ms-vscode.azure-account",                  //Azure Login
+    "ms-azuretools.vscode-azurestaticwebapps",  //Helper to create static web apps in Azure
     "ms-vscode-remote.remote-containers"
   ]
 }
