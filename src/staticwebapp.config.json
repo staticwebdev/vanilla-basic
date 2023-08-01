@@ -33,12 +33,6 @@
             "rewrite": "/.auth/login/aadb2c"
         },
         {
-            "route": "/*",
-            "allowedRoles": [
-                "authenticated"
-            ]
-        },
-        {
             "route": "/logout",
             "redirect": "/.auth/logout"
         }
