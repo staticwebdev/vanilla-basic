@@ -1,24 +1,42 @@
 {
-    "auth": {
-      "identityProviders": {
-        "customOpenIdConnectProviders": {
-          "aadb2c": {
-            "registration": {
-              "clientIdSettingName": "AADB2C_PROVIDER_CLIENT_ID",
-              "clientCredential": {
-                "clientSecretSettingName": "AADB2C_PROVIDER_CLIENT_SECRET"
-              },
-              "openIdConnectConfiguration": {
-                "wellKnownOpenIdConfiguration": "https://itcssob2cdev.b2clogin.com/itcssob2cdev.onmicrosoft.com/B2C_1A_ITC_SUSI_SOCIAL/v2.0/.well-known/openid-configuration"
-              }
-            },
-            "login": {
-              "nameClaimType": "email",
-              "scopes": ["openid"],
-              "loginParameterNames": []
-            }
-          }
+    "routes": [
+        {
+            "route": "/admin/*",
+            "allowedRoles": [
+                "authenticated"
+            ]
+        },
+        {
+            "route": "/login",
+            "rewrite": "/.auth/login/aadb2c"
+        },
+        {
+            "route": "/logout",
+            "redirect": "/.auth/logout"
         }
-      }
+    ],
+    "auth": {
+        "identityProviders": {
+            "customOpenIdConnectProviders": {
+                "aadb2c": {
+                    "registration": {
+                        "clientIdSettingName": "AADB2C_PROVIDER_CLIENT_ID",
+                        "clientCredential": {
+                            "clientSecretSettingName": "AADB2C_PROVIDER_CLIENT_SECRET"
+                        },
+                        "openIdConnectConfiguration": {
+                            "wellKnownOpenIdConfiguration": "https://itcssob2cdev.b2clogin.com/itcssob2cdev.onmicrosoft.com/B2C_1A_ITC_SUSI_SOCIAL/v2.0/.well-known/openid-configuration"
+                        }
+                    },
+                    "login": {
+                        "nameClaimType": "email",
+                        "scopes": [
+                            "openid"
+                        ],
+                        "loginParameterNames": []
+                    }
+                }
+            }
+        }
     }
-  }
+}
