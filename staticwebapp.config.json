@@ -1,10 +1,19 @@
 {
+    "trailingSlash": "auto",
     "routes": [
         {
             "route": "/admin/*",
             "allowedRoles": [
                 "authenticated"
             ]
+        },
+        {
+            "route": "/.auth/login/twitter",
+            "statusCode": 404
+        },
+        {
+            "route": "/.auth/login/github",
+            "statusCode": 404
         },
         {
             "route": "/login",
