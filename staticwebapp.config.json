@@ -27,25 +27,22 @@
         },
         {
             "route": "/login",
-            "allowedRoles": ["anonymous"],
+            "allowedRoles": [
+                "anonymous"
+            ],
             "rewrite": "/.auth/login/aadb2c"
         },
         {
-            "route": "/new",
-            "allowedRoles": ["anonymous"],
-            "rewrite": "/1.html"
+            "route": "/*",
+            "allowedRoles": [
+                "authenticated"
+            ]
         },
         {
             "route": "/logout",
             "redirect": "/.auth/logout"
         }
     ],
-    "responseOverrides": {
-        "401": {
-            "statusCode": 302,
-            "redirect": "/login"
-        }
-    },
     "auth": {
         "identityProviders": {
             "customOpenIdConnectProviders": {
