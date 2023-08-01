@@ -2,21 +2,32 @@
     "trailingSlash": "auto",
     "routes": [
         {
-            "route": "/admin/*",
-            "allowedRoles": [
-                "authenticated"
-            ]
-        },
-        {
-            "route": "/.auth/login/twitter",
+            "route": "/.auth/login/facebook",
+            "allowedRoles": ["anonymous", "authenticated"],
             "statusCode": 404
         },
         {
             "route": "/.auth/login/github",
+            "allowedRoles": ["anonymous", "authenticated"],
             "statusCode": 404
         },
         {
+            "route": "/.auth/login/google",
+            "allowedRoles": ["anonyous", "authenticated"],
+            "statusCode": 404
+        },
+        {
+            "route": "/.auth/login/twitter",
+            "allowedRoles": ["anonymous", "authenticated"],
+            "statusCode": 404
+        },
+        {
+            "route": "/*",
+            "allowedRoles": ["authenticated"]
+        },
+        {
             "route": "/login",
+            "allowedRoles": ["anonymous"],
             "rewrite": "/.auth/login/aadb2c"
         },
         {
@@ -24,6 +35,12 @@
             "redirect": "/.auth/logout"
         }
     ],
+    "responseOverrides": {
+        "401": {
+            "statusCode": 302,
+            "redirect": "/login"
+        }
+    },
     "auth": {
         "identityProviders": {
             "customOpenIdConnectProviders": {
@@ -40,7 +57,7 @@
                     "login": {
                         "nameClaimType": "email",
                         "scopes": [
-                            "openid"
+                            "openid","profile","offline_access"
                         ],
                         "loginParameterNames": []
                     }
