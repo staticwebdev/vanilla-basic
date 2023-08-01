@@ -2,30 +2,6 @@
     "trailingSlash": "auto",
     "routes": [
         {
-            "route": "/.auth/login/facebook",
-            "allowedRoles": ["anonymous", "authenticated"],
-            "statusCode": 404
-        },
-        {
-            "route": "/.auth/login/github",
-            "allowedRoles": ["anonymous", "authenticated"],
-            "statusCode": 404
-        },
-        {
-            "route": "/.auth/login/google",
-            "allowedRoles": ["anonyous", "authenticated"],
-            "statusCode": 404
-        },
-        {
-            "route": "/.auth/login/twitter",
-            "allowedRoles": ["anonymous", "authenticated"],
-            "statusCode": 404
-        },
-        {
-            "route": "/*",
-            "allowedRoles": ["authenticated"]
-        },
-        {
             "route": "/login",
             "allowedRoles": ["anonymous"],
             "rewrite": "/.auth/login/aadb2c"
@@ -56,9 +32,7 @@
                     },
                     "login": {
                         "nameClaimType": "email",
-                        "scopes": [
-                            "openid","profile","offline_access"
-                        ],
+                        "scopes": [],
                         "loginParameterNames": []
                     }
                 }
